@@ -42,7 +42,7 @@ async function queryData() {
   const fdata = await data.json();
   const queryField = document.querySelector(".queries");
    let queryfieldhtml = "";
-    queryField.innerHTML = "<h1>loading...</h1.";
+    queryField.innerHTML = "<h1 class='loading'>loading...</h1.";
   for (let x = fdata.length - 1; x >= 0; x--) {
     const userinfo = await fetch(`/studentpage/userinfo?id=${fdata[x].uid}`);
     const fuserinfo = await userinfo.json();
