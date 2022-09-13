@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QueryPage</title>
+    <link rel="stylesheet" href="/style.css" />
+    
+  </head>
+  <body>
+    <main>
+      <section class="outer-container">
+        <h1 style="text-align: center">Query Page</h1>
+      <section class="content">
+        <form method="post" action="/studentpage/signin" class="signupform">
+          <div class="form">
+            <label for="user"
+              >User id:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+            >
+            <input
+              type="text"
+              name="user"
+              id="user"
+              placeholder="user id"
+              required
+            />
+
+            <div class="usernameCheck">&nbsp;<span class="isavailable">username Available!</span><span class="isnotavailable">username not Available</span></div><label class="passwordlabel" for="password"
+              >Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+            >
+            <input
+              type="password"
+              id="password"
+              class="password"
+              name="password"
+              placeholder="password"
+              pattern="[!,@,#,$,%,^,&,*,(,+,_,),A-Z,a-z,0-9]{8,12}"
+              title="password size should be 8-12,should atleast 1 uppercase letter, 1 lowercase letter and a number"
+              required
+            />
+            <br /><br />
+            <label for="name">Name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="text" name="name" placeholder="Name" id="name"required>
+            <br /><br />
+            
+            <label for="dob">DOB:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+            <input type="date" name="dob" id="dob" required>
+            <br><br>
+            <label for="gender">gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+              <label for="male" class="gender">M</label>
+            <input type="radio" name="gender" id="male" value="male" required>
+            <label for="female" class="gender">F</label>
+            <input type="radio" name="gender" id="female" value="female">
+            <label for="others" class="gender">O</label>
+            <input type="radio" name="gender" id="others" value="others">
+            <br><br>
+              <button class="login" type="submit">sign up</button>
+            </div>
+          </div>
+        </form>
+      </section>
+      </section>
+    </main>
+  </body>
+  <script src="/app.js"></script>
+</html>

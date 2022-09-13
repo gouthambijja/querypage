@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QueryPage</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+    />
+    <link href="student.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+  <body>
+        <span class="queryId" style="display: none;"></span>
+        <span class='id' style="display: none;"><%=data%></span>
+        <main class="comments-main" id="comments-main">
+          <section class="comments">
+            <div class="comments-header">
+              close
+            </div>
+            <input type="text" name="comment" id="comment" placeholder="Add answer/comment">
+            <div class="submit-comment-div"><span class="submit-comment">submit</span></div>
+            <div class="all-comments">
+              <!-- <div class="comment-box">
+                <div class="comment-header">name</div>
+                  <div class="comment-data">sharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnsharingnvvv</div>
+              </div> -->
+            </div>
+          </section>
+        </main>
+        <main class="profile-main" id="profile-main">
+          <section class="profile">
+            <div class="profile-header">
+              <div class="profile-name">name</div>
+              <div class="profile-exit"><span id="profile-exit">X</span></div>
+            </div>
+            <div class="queries-asked">Queries asked:</div>
+            <div class="profile-all-queries"></div>
+          </section>
+        </main>
+    <main class="container">
+      <header>
+        <div class="row">
+          <div class="col-md-3 col">
+            <h1
+              class="logo"
+              style="
+                text-align: center;
+                font-family: 'Times New Roman', Times, serif;
+              "
+            >
+            &#8474
+            </h1>
+          </div>
+          <div
+            class="col-md-6 col"
+            style="display: flex; justify-content: center; align-items: center"
+          >
+
+          </div>
+          <div class="col-md-3 col" style="display: flex;justify-content:center;align-items:center;">
+                <button class="header-button profile-button">&#9883;</button>
+                &nbsp;&nbsp;<form action="/studentpage/logout" method="post"><button class="header-button logout-button">&#10162;</button></form>
+        </div>
+      </header>
+    </main>
+    <main class="container query-container">
+        <div class="row">
+                <div class="col-8 queries">
+                        <!-- <div class="query-box">
+                                <div class="query-header">names</div>
+                                <div class="query">query</div>
+                                <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span> 
+                                        &nbsp; <i class="material-icons">comment</i>
+                                </div>
+                        </div> -->
+                </div>
+                <div class="col-4">
+                        <br>
+                        <textarea name="inputQuery" id="inputQuery"  style="width:90%;height:30%;resize: none;margin-top:-2.5vh;border-radius:10px;background:none;"></textarea>
+                       <br> <button class="inputQuery" style="width:90%;margin-top: 3px;">post</button>
+                        
+                </div>
+        </div>                
+</main>
+<script src="/student.js"></script>
+
+  </body>
+
+</html>

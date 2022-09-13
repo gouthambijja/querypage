@@ -1,0 +1,139 @@
+body {
+  margin: 0px auto;
+  padding: 0px;
+  background: url("images/main-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  font-style: italic;
+  color: white;
+}
+.outer-container {
+  width: 40%;
+}
+.content {
+  display: flex;
+  padding: 10%;
+  border-radius: 10%;
+  background-color: rgb(255, 255, 255);
+}
+form {
+  color: black;
+  font-weight: 300;
+  font-size: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+#male,
+#female,
+#others {
+  outline: none;
+}
+
+.login {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 100;
+  font-size: 0.8em;
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+  border: none;
+  border-radius: 20%;
+  border: 1px solid lightcoral;
+}
+
+.login:hover {
+  background-color: lightcoral;
+  color: white;
+}
+.login:active {
+  box-shadow: none;
+  transform: translateY(2px);
+}
+.loginsignup {
+  display: flex;
+  justify-content: center;
+}
+input:active {
+  background-color: rgb(231, 231, 231);
+}
+input:focus {
+  background-color: white;
+}
+input {
+  font-family: "Times New Roman", Times, serif;
+  border: 1px solid black;
+  border-radius: 10%;
+  outline: 1px solid white;
+  text-align: center;
+  color: rgb(236, 101, 101);
+  color: black;
+}
+.gender {
+  outline: none;
+  font-size: 15px;
+  color: black;
+}
+.alreadyregistered {
+  position: absolute;
+}
+.usernameCheck {
+  display: flex;
+  justify-content: end;
+}
+.isavailable,
+.isnotavailable {
+  display: none;
+  font-size: 0.7em;
+}
+.isavailable {
+  color: green;
+}
+.isnotavailable {
+  color: red;
+}
+@media (max-width: 768px) {
+  body {
+    background-size: cover;
+    background-position: center;
+  }
+  .outer-container {
+    width: 85%;
+  }
+  .content {
+    position: relative;
+    top: -5%;
+    padding: 5vh 5%;
+    background-color: rgb(255, 255, 255);
+  }
+  .outer-container {
+    display: block;
+  }
+  .login {
+    display: block;
+  }
+  input {
+    outline: none;
+    width: 80%;
+    height: 4vh;
+  }
+  #male,
+  #female,
+  #others {
+    width: 5%;
+  }
+}

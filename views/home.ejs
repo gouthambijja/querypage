@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QueryPage</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+      main {
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="outer-container">
+        <h1 style="text-align: center">Query Page</h1>
+        <section class="content">
+          <form method="post" action="/studentpage">
+            <div class="form">
+              <label for="user"
+                >User id:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label
+              >
+              <input
+                type="text"
+                name="user"
+                id="user"
+                placeholder="user id"
+                required
+                autocomplete="off"
+              />
+              <br />
+              <br /><label class="passwordlabel" for="password"
+                >Password:&nbsp;&nbsp;</label
+              >
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="password"
+                required
+                autocomplete="off"
+              />
+              <br />
+              <br />
+              <div class="loginsignup">
+                <button class="login" type="submit">Log in</button
+                >&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="login" href="/studentpage/signup">signup</a>
+              </div>
+            </div>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
