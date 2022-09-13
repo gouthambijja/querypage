@@ -281,7 +281,10 @@ header {
   display: none;
 }
 .loading {
-  animation: loadingAnimation 5s linear infinite;
+  margin-top: 2vh;
+  text-indent: 3%;
+  font-family: Kepolu;
+  animation: loadingAnimation 2s linear infinite;
 }
 @keyframes loadingAnimation {
   0% {
