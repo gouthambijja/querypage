@@ -96,17 +96,17 @@ async function queryData() {
         }`
       );
       const fcommentsDAta = await commentsDAta.json();
+     allComments.innerHTML = "<h5 class='loading'>loading...</h5>";
+      let commentshtml = "";
       for (let j = 0; j < fcommentsDAta.length; j++) {
-        const div = document.createElement("div");
-        div.classList.add("comment-box");
         const userinfo = await fetch(
           `/studentpage/userinfo?id=${fcommentsDAta[j].uid}`
         );
         const fuserinfo = await userinfo.json();
-        div.innerHTML = `<div class="comment-header">${fuserinfo[0].userId}</div>
-        <div class="comment-data">${fcommentsDAta[j].comment}</div>`;
-        allComments.prepend(div);
+        commentshtml += `<div class="comment-box"><div class="comment-header">${fuserinfo[0].userId}</div>
+        <div class="comment-data">${fcommentsDAta[j].comment}</div></div>`;
       }
+      allComments.innerHTML = commentshtml;
     });
   }
   //to count the like
