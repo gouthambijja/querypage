@@ -41,20 +41,19 @@ async function queryData() {
   const data = await fetch("/studentpage/querydata");
   const fdata = await data.json();
   const queryField = document.querySelector(".queries");
-  for (let x = 0; x < fdata.length; x++) {
-    const div = document.createElement("div");
-    const userinfo = await fetch(
-      `/studentpage/userinfo?id=${fdata[x].uid}`
-    );
+   let queryfieldhtml = "";
+  for (let x = fdata.length - 1; x >= 0; x--) {
+    const userinfo = await fetch(`/studentpage/userinfo?id=${fdata[x].uid}`);
     const fuserinfo = await userinfo.json();
-    div.innerHTML = `<div class="query-header">${fuserinfo[0].userId}</div>
+    let temp = `<div class="query-box"><div class="query-header">${fuserinfo[0].userId}</div>
     <div class="query">${fdata[x].query}</div><div class="qid"style="display:none;">${fdata[x].id}</div>
     <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span> 
             &nbsp;<span class="likeCount ">0</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
-    </div>`;
-    div.classList.add("query-box");
-    queryField.prepend(div);
+    </div></div>`;
+    queryfieldhtml += temp;
+    // console.log(temp);
   }
+  queryField.innerHTML = queryfieldhtml;
   //to add like and comment functionality
   const commentButton = document.querySelectorAll(".commentButton");
   const commentsMain = document.querySelector(".comments-main");
