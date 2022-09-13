@@ -280,6 +280,29 @@ header {
 .profile-all-queries::-webkit-scrollbar {
   display: none;
 }
+.loading {
+  animation: loadingAnimation 5s linear infinite;
+}
+@keyframes loadingAnimation {
+  0% {
+    color: rgb(255, 255, 255);
+  }
+  20% {
+    color: rgb(255, 4, 209);
+  }
+  40% {
+    color: rgb(210, 255, 12);
+  }
+  60% {
+    color: rgb(255, 5, 5);
+  }
+  80% {
+    color: rgb(49, 8, 255);
+  }
+  100% {
+    color: green;
+  }
+}
 @media (max-width: 768px) {
   .search {
     width: 100%;
