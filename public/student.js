@@ -44,7 +44,7 @@ async function queryData() {
   for (let x = 0; x < fdata.length; x++) {
     const div = document.createElement("div");
     const userinfo = await fetch(
-      `/studentpage/userinfo?id=${document.querySelector(".id").innerHTML}`
+      `/studentpage/userinfo?id=${fdata[x].uid}`
     );
     const fuserinfo = await userinfo.json();
     div.innerHTML = `<div class="query-header">${fuserinfo[0].userId}</div>
