@@ -187,9 +187,7 @@ async function profilequeryData() {
   const fuserinfo = await userinfo.json();
   document.querySelector(".profile-name").innerHTML = fuserinfo[0].userId;
   const data = await fetch(
-    `/studentpage/profilequerydata?uid=${
-      document.querySelector(".id").innerHTML
-    }`
+    `/studentpage/profilequerydata?uid=${fuserinfo[0].userId}`
   );
   const fdata = await data.json();
   console.log(fdata);
