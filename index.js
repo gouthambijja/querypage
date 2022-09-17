@@ -57,8 +57,12 @@ app.post("/studentpage", async (req, res) => {
       data.password,
       isAvailable[0].password
     );
-    req.session.uid = isAvailable[0].id;
-    res.redirect(`/studentpage`);
+    if (isCorrectPassword) {
+      req.session.uid = isAvailable[0].id;
+      res.redirect(`/studentpage`);
+    } else {
+      res.send("incorrect password!");
+    }
   } else {
     res.send("invalid User Name!");
   }
