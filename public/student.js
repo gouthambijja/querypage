@@ -8,20 +8,7 @@ setTimeout("preventBack()", 0);
 window.onunload = function () {
   null;
 };
-const backgroundImages = [
-  "https://images.pexels.com/photos/2055389/pexels-photo-2055389.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "/images/main-bg.jpg",
-  "https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "https://images.pexels.com/photos/531321/pexels-photo-531321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "https://images.pexels.com/photos/11167646/pexels-photo-11167646.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "https://images.pexels.com/photos/359971/pexels-photo-359971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-];
-const x = Math.floor(Math.random() * 7);
-document.body.style.backgroundImage = `url('${backgroundImages[x]}')`;
-document.querySelector(
-  "header"
-).style.backgroundImage = `url('${backgroundImages[x]}')`;
+
 const inputQueryButton = document.querySelector(".inputQuery");
 const inputQuery = document.querySelector("#inputQuery");
 inputQueryButton.addEventListener("click", async () => {
@@ -55,8 +42,8 @@ async function queryData() {
   const data = await fetch("/studentpage/querydata");
   const fdata = await data.json();
   const queryField = document.querySelector(".queries");
-   let queryfieldhtml = "";
-    queryField.innerHTML = "<h1 class='loading'>loading...</h1.";
+  let queryfieldhtml = "";
+  queryField.innerHTML = "<h1 class='loading'>loading...</h1.";
   for (let x = fdata.length - 1; x >= 0; x--) {
     const userinfo = await fetch(`/studentpage/userinfo?id=${fdata[x].uid}`);
     const fuserinfo = await userinfo.json();
@@ -110,7 +97,7 @@ async function queryData() {
         }`
       );
       const fcommentsDAta = await commentsDAta.json();
-     allComments.innerHTML = "<h5 class='loading'>loading...</h5>";
+      allComments.innerHTML = "<h5 class='loading'>loading...</h5>";
       let commentshtml = "";
       for (let j = 0; j < fcommentsDAta.length; j++) {
         const userinfo = await fetch(
@@ -323,3 +310,4 @@ profileexit.addEventListener("click", () => {
   profileMain.style.display = "none";
 });
 const logout = document.querySelector(".logout-button");
+
