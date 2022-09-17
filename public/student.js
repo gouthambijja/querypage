@@ -49,7 +49,7 @@ async function queryData() {
     let temp = `<div class="query-box"><div class="query-header">${fdata[x].uid}</div>
     <div class="query">${fdata[x].query}</div><div class="qid"style="display:none;">${fdata[x].id}</div>
     <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span> 
-            &nbsp;<span class="likeCount ">0</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
+            &nbsp;<span class="likeCount ">${fdata[x].likeCount}</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
     </div></div>`;
     queryfieldhtml += temp;
     // console.log(temp);
@@ -106,22 +106,18 @@ async function queryData() {
     });
   }
   //to count the like
-
-  for (let i = 0; i < likeCount.length; i++) {
-    const lcount = await fetch(
-      `/studentpage/likecount/?qid=${
-        document.querySelectorAll(".qid")[i].innerHTML
-      }&&uid=${document.querySelector(".id").innerHTML}`
-    );
-    const flcount = await lcount.json();
-    likeCount[i].innerHTML = flcount;
-    const check = await fetch(
-      `/studentpage/checklike/?qid=${
-        document.querySelectorAll(".qid")[i].innerHTML
-      }`
-    );
-    const fcheck = await check.json();
-    if (fcheck) {
+  const check = await fetch(`/studentpage/checklike`);
+  const fcheck = await check.json();
+  let likeCheck = [];
+  for (let i = 0; i < fcheck.length; i++) {
+    likeCheck.push(fcheck[i].qid);
+  }
+  // console.log(likeCount);
+  for (let i = 0; i < document.querySelectorAll(".qid").length; i++) {
+    console.log(document.querySelectorAll(".qid")[i].innerHTML);
+    if (
+      likeCheck.indexOf(document.querySelectorAll(".qid")[i].innerHTML) >= 0
+    ) {
       like[i].innerHTML = "♥";
     } else {
       like[i].innerHTML = "♡";
@@ -197,7 +193,7 @@ async function profilequeryData() {
     div.innerHTML = `
     <div class="query">${fdata[x].query}</div><div class="qid"style="display:none;">${fdata[x].id}</div>
     <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span> 
-            &nbsp;<span class="likeCount ">0</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
+            &nbsp;<span class="likeCount ">${fdata[x].likeCount}</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
     </div>`;
     div.classList.add("query-box");
     queryField.prepend(div);
@@ -258,21 +254,18 @@ async function profilequeryData() {
   }
   //to count the like
 
-  for (let i = 0; i < likeCount.length; i++) {
-    const lcount = await fetch(
-      `/studentpage/likecount/?qid=${
-        document.querySelectorAll(".qid")[i].innerHTML
-      }&&uid=${document.querySelector(".id").innerHTML}`
-    );
-    const flcount = await lcount.json();
-    likeCount[i].innerHTML = flcount;
-    const check = await fetch(
-      `/studentpage/checklike/?qid=${
-        document.querySelectorAll(".qid")[i].innerHTML
-      }`
-    );
-    const fcheck = await check.json();
-    if (fcheck) {
+  const check = await fetch(`/studentpage/checklike`);
+  const fcheck = await check.json();
+  let likeCheck = [];
+  for (let i = 0; i < fcheck.length; i++) {
+    likeCheck.push(fcheck[i].qid);
+  }
+  // console.log(likeCount);
+  for (let i = 0; i < document.querySelectorAll(".qid").length; i++) {
+    console.log(document.querySelectorAll(".qid")[i].innerHTML);
+    if (
+      likeCheck.indexOf(document.querySelectorAll(".qid")[i].innerHTML) >= 0
+    ) {
       like[i].innerHTML = "♥";
     } else {
       like[i].innerHTML = "♡";
