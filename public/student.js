@@ -11,27 +11,35 @@ window.onunload = function () {
 
 const inputQueryButton = document.querySelector(".inputQuery");
 const inputQuery = document.querySelector("#inputQuery");
-inputQueryButton.addEventListener("click", async () => {
-  if (inputQuery.value != "") {
-    await fetch(`/studentpage/query/insert?query=${inputQuery.value}`);
-    const div = document.createElement("div");
-    const userinfo = await fetch(
-      `/studentpage/userinfo?id=${document.querySelector(".id").innerHTML}`
-    );
-    const queryField = document.querySelector(".queries");
-    const fuserinfo = await userinfo.json();
-    div.innerHTML = `<div class="query-header">${fuserinfo[0].userId}</div>
-    <div class="query">${inputQuery.value}</div>
-    <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span>
-            &nbsp;<span class="likeCount like">0</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
-    </div>`;
-    div.classList.add("query-box");
-    queryField.prepend(div);
-    inputQuery.value = "";
-    queryField.innerHTML = "";
-    queryData();
+async function postFunction() {
+  {
+    if (inputQuery.value != "") {
+      await fetch(`/studentpage/query/insert?query=${inputQuery.value}`);
+      const div = document.createElement("div");
+      const userinfo = await fetch(
+        `/studentpage/userinfo?id=${document.querySelector(".id").innerHTML}`
+      );
+      const queryField = document.querySelector(".queries");
+      const fuserinfo = await userinfo.json();
+      div.innerHTML = `<div class="query-header">${fuserinfo[0].userId}</div>
+      <div class="query">${inputQuery.value}</div>
+      <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span>
+              &nbsp;<span class="likeCount like">0</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
+      </div>`;
+      div.classList.add("query-box");
+      queryField.prepend(div);
+      inputQuery.value = "";
+      queryField.innerHTML = "";
+      queryData();
+    }
+  }
+}
+document.addEventListener("keydown", (e) => {
+  if (e.key == "Enter") {
+    postFunction();
   }
 });
+inputQueryButton.addEventListener("click", postFunction);
 const color = () => {
   const x = Math.floor(Math.random() * 256);
   if (x < 100) return 150;
@@ -45,14 +53,14 @@ async function queryData() {
   let queryfieldhtml = "";
   queryField.innerHTML = "<h1 class='loading'>loading...</h1.";
   for (let x = fdata.length - 1; x >= 0; x--) {
-    //console.log(fdata[x]);
+    ////console.log(fdata[x]);
     let temp = `<div class="query-box"><div class="query-header">${fdata[x].uid}</div>
     <div class="query">${fdata[x].query}</div><div class="qid"style="display:none;">${fdata[x].id}</div>
     <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span> 
             &nbsp;<span class="likeCount ">${fdata[x].likeCount}</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
     </div></div>`;
     queryfieldhtml += temp;
-    // console.log(temp);
+    // //console.log(temp);
   }
   queryField.innerHTML = queryfieldhtml;
   //to add like and comment functionality
@@ -112,9 +120,9 @@ async function queryData() {
   for (let i = 0; i < fcheck.length; i++) {
     likeCheck.push(fcheck[i].qid);
   }
-  // console.log(likeCount);
+  // //console.log(likeCount);
   for (let i = 0; i < document.querySelectorAll(".qid").length; i++) {
-    console.log(document.querySelectorAll(".qid")[i].innerHTML);
+    //console.log(document.querySelectorAll(".qid")[i].innerHTML);
     if (
       likeCheck.indexOf(document.querySelectorAll(".qid")[i].innerHTML) >= 0
     ) {
@@ -186,7 +194,7 @@ async function profilequeryData() {
     `/studentpage/profilequerydata?uid=${fuserinfo[0].userId}`
   );
   const fdata = await data.json();
-  console.log(fdata);
+  //console.log(fdata);
   const queryField = document.querySelector(".profile-all-queries");
   for (let x = 0; x < fdata.length; x++) {
     const div = document.createElement("div");
@@ -260,9 +268,9 @@ async function profilequeryData() {
   for (let i = 0; i < fcheck.length; i++) {
     likeCheck.push(fcheck[i].qid);
   }
-  // console.log(likeCount);
+  // //console.log(likeCount);
   for (let i = 0; i < document.querySelectorAll(".qid").length; i++) {
-    console.log(document.querySelectorAll(".qid")[i].innerHTML);
+    //console.log(document.querySelectorAll(".qid")[i].innerHTML);
     if (
       likeCheck.indexOf(document.querySelectorAll(".qid")[i].innerHTML) >= 0
     ) {
