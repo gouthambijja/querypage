@@ -45,9 +45,7 @@ async function queryData() {
   let queryfieldhtml = "";
   queryField.innerHTML = "<h1 class='loading'>loading...</h1.";
   for (let x = fdata.length - 1; x >= 0; x--) {
-    const userinfo = await fetch(`/studentpage/userinfo?id=${fdata[x].uid}`);
-    const fuserinfo = await userinfo.json();
-    let temp = `<div class="query-box"><div class="query-header">${fuserinfo[0].userId}</div>
+    let temp = `<div class="query-box"><div class="query-header">${fdata[x].uid}</div>
     <div class="query">${fdata[x].query}</div><div class="qid"style="display:none;">${fdata[x].id}</div>
     <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span> 
             &nbsp;<span class="likeCount ">0</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
@@ -100,11 +98,7 @@ async function queryData() {
       allComments.innerHTML = "<h5 class='loading'>loading...</h5>";
       let commentshtml = "";
       for (let j = 0; j < fcommentsDAta.length; j++) {
-        const userinfo = await fetch(
-          `/studentpage/userinfo?id=${fcommentsDAta[j].uid}`
-        );
-        const fuserinfo = await userinfo.json();
-        commentshtml += `<div class="comment-box"><div class="comment-header">${fuserinfo[0].userId}</div>
+        commentshtml += `<div class="comment-box"><div class="comment-header">${fcommentsDAta[j].uid}</div>
         <div class="comment-data">${fcommentsDAta[j].comment}</div></div>`;
       }
       allComments.innerHTML = commentshtml;
@@ -310,4 +304,3 @@ profileexit.addEventListener("click", () => {
   profileMain.style.display = "none";
 });
 const logout = document.querySelector(".logout-button");
-
