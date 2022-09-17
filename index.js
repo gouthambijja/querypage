@@ -104,6 +104,7 @@ app.get("/studentpage/query/insert", async (req, res) => {
     id: uuidv4(),
     query: req.query.query,
     uid: uname[0].userId,
+    likeCount: 0,
   });
   console.log(newQuery);
   await newQuery.save();
@@ -126,11 +127,20 @@ app.get("/studentpage/like/add", async (req, res) => {
     uid: req.query.uid,
     qid: req.query.qid,
   });
+  const likeCountOfPresentQuery = await Query.find({ id: req.query.qid });
+  await Query.updateOne(
+    { id: req.query.qid },
+    { $set: { likeCount: likeCountOfPresentQuery[0].likeCount + 1 } }
+  );
   await newLike.save();
-  console.log(newLike);
   res.send("200");
 });
 app.get("/studentpage/like/remove", async (req, res) => {
+  const likeCountOfPresentQuery = await Query.find({ id: req.query.qid });
+  await Query.updateOne(
+    { id: req.query.qid },
+    { $set: { likeCount: likeCountOfPresentQuery[0].likeCount - 1 } }
+  );
   await Like.deleteOne({ qid: req.query.qid, uid: req.query.uid });
   res.send("200");
 });
@@ -139,8 +149,8 @@ app.get("/studentpage/likecount", async (req, res) => {
   res.send(`${cnt.length}`);
 });
 app.get("/studentpage/checklike", async (req, res) => {
-  const check = await Like.find({ qid: req.query.qid, uid: req.session.uid });
-  res.send(`${check.length}`);
+  const check = await Like.find({ uid: req.session.uid });
+  res.send(check);
 });
 app.get("/studentpage/add/comment", async (req, res) => {
   const uname = await Userdata.find({ id: req.session.uid });
