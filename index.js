@@ -105,6 +105,7 @@ app.get("/studentpage/query/insert", async (req, res) => {
     query: req.query.query,
     uid: uname[0].userId,
   });
+  console.log(newQuery);
   await newQuery.save();
   res.sendStatus(200);
 });
