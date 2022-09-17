@@ -8,17 +8,6 @@ setTimeout("preventBack()", 0);
 window.onunload = function () {
   null;
 };
-const backgroundImages = [
-  "https://images.pexels.com/photos/2055389/pexels-photo-2055389.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "/images/main-bg.jpg",
-  "https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "https://images.pexels.com/photos/531321/pexels-photo-531321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "https://images.pexels.com/photos/396547/pexels-photo-396547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "https://images.pexels.com/photos/11167646/pexels-photo-11167646.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-  "https://images.pexels.com/photos/359971/pexels-photo-359971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
-];
-const x = Math.floor(Math.random() * 7);
-document.body.style.backgroundImage = `url('${backgroundImages[x]}')`;
 document.querySelector(
   "header"
 ).style.backgroundImage = `url('${backgroundImages[x]}')`;
