@@ -99,10 +99,11 @@ app.get("/studentpage/signin/", async (req, res) => {
   } else res.send("1");
 });
 app.get("/studentpage/query/insert", async (req, res) => {
+  const uname = await Userdata.find({ id: req.session.uid });
   const newQuery = new Query({
     id: uuidv4(),
     query: req.query.query,
-    uid: req.session.uid,
+    uid: uname[0].userId,
   });
   await newQuery.save();
   res.sendStatus(200);
@@ -141,8 +142,9 @@ app.get("/studentpage/checklike", async (req, res) => {
   res.send(`${check.length}`);
 });
 app.get("/studentpage/add/comment", async (req, res) => {
+  const uname = await Userdata.find({ id: req.session.uid });
   const newComment = new Comment({
-    uid: req.query.uid,
+    uid: uname[0].userId,
     qid: req.query.qid,
     comment: req.query.comment,
   });
