@@ -45,7 +45,7 @@ async function queryData() {
   let queryfieldhtml = "";
   queryField.innerHTML = "<h1 class='loading'>loading...</h1.";
   for (let x = fdata.length - 1; x >= 0; x--) {
-    console.log(fdata[x]);
+    //console.log(fdata[x]);
     let temp = `<div class="query-box"><div class="query-header">${fdata[x].uid}</div>
     <div class="query">${fdata[x].query}</div><div class="qid"style="display:none;">${fdata[x].id}</div>
     <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span> 
