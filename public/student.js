@@ -29,16 +29,13 @@ async function postFunction() {
       queryField.prepend(div);
       inputQuery.value = "";
       queryField.innerHTML = "";
-      document.querySelector(".post-sm").classList.toggle("hide");
       queryData();
+      document.querySelector(".post-sm").classList.toggle("hide");
+      
     }
   }
 }
-document.addEventListener("keydown", (e) => {
-  if (e.key == "Enter") {
-    postFunction();
-  }
-});
+
 inputQueryButton.addEventListener("click", postFunction);
 const color = () => {
   const x = Math.floor(Math.random() * 256);
