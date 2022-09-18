@@ -8,12 +8,13 @@ setTimeout("preventBack()", 0);
 window.onunload = function () {
   null;
 };
-const inputQueryButton = document.querySelector(".inputQuery");
-const inputQuery = document.querySelector("#inputQuery");
-async function postFunction() {
-  {
-    if (inputQuery.value != "") {
-      await fetch(`/studentpage/query/insert?query=${inputQuery.value}`);
+const inputQueryButton = document.querySelectorAll(".inputQuery");
+const inputQuery = document.querySelectorAll("#inputQuery");
+
+for (let i = 0; i < inputQueryButton.length; i++) {
+  inputQueryButton[i].addEventListener("click", async () => {
+    if (inputQuery[i].value != "") {
+      await fetch(`/studentpage/query/insert?query=${inputQuery[i].value}`);
       const div = document.createElement("div");
       const userinfo = await fetch(
         `/studentpage/userinfo?id=${document.querySelector(".id").innerHTML}`
@@ -21,22 +22,20 @@ async function postFunction() {
       const queryField = document.querySelector(".queries");
       const fuserinfo = await userinfo.json();
       div.innerHTML = `<div class="query-header">${fuserinfo[0].userId}</div>
-      <div class="query">${inputQuery.value}</div>
-      <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span>
-              &nbsp;<span class="likeCount like">${0}</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
-      </div>`;
+        <div class="query">${inputQuery[i].value}</div>
+        <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span>
+                &nbsp;<span class="likeCount like">${0}</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
+        </div>`;
       div.classList.add("query-box");
       queryField.prepend(div);
-      inputQuery.value = "";
+      inputQuery[i].value = "";
       queryField.innerHTML = "";
+      if (screen.width <= 768)
+        document.querySelector(".post-sm").classList.toggle("hide");
       queryData();
-      document.querySelector(".post-sm").classList.toggle("hide");
-      
     }
-  }
+  });
 }
-
-inputQueryButton.addEventListener("click", postFunction);
 const color = () => {
   const x = Math.floor(Math.random() * 256);
   if (x < 100) return 150;
