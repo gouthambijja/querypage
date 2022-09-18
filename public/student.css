@@ -10,6 +10,7 @@
   font-family: shadow;
   src: url(/shadow.otf);
 }
+
 body {
   margin: 0px auto;
   padding: 0px;
@@ -19,6 +20,7 @@ body {
   /* backdrop-filter: blur(6px); */
 }
 header {
+  margin: 0px;
   background: url("images/main-bg.jpg");
   background-size: cover;
   background-position: center;
@@ -284,10 +286,10 @@ header {
   margin-top: 2vh;
   text-indent: 3%;
   font-family: Kepolu;
-  animation: loadingAnimation 2s linear infinite;
+  animation: loadingAnimation 1s linear infinite;
 }
 @keyframes loadingAnimation {
-   0% {
+  0% {
     color: rgb(255, 0, 0);
   }
   10% {
@@ -321,7 +323,16 @@ header {
     color: rgb(255, 0, 0);
   }
 }
+.post-sm-box {
+  display: none;
+}
 @media (max-width: 768px) {
+  .queries {
+    border: none;
+  }
+  .post-box {
+    display: none;
+  }
   .search {
     width: 100%;
   }
