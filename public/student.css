@@ -1,352 +1,358 @@
-  @font-face {
-    font-family: fonty;
-    src: url(/fonty.ttf);
-  }
-  @font-face {
-    font-family: kepolu;
-    src: url(/Kepolu.ttf);
-  }
-  @font-face {
-    font-family: shadow;
-    src: url(/shadow.otf);
-  }
+@font-face {
+  font-family: fonty;
+  src: url(/fonty.ttf);
+}
+@font-face {
+  font-family: kepolu;
+  src: url(/Kepolu.ttf);
+}
+@font-face {
+  font-family: shadow;
+  src: url(/shadow.otf);
+}
 
-  body {
-    margin: 0px auto;
-    padding: 0px;
-    background: url("images/main-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    /* backdrop-filter: blur(6px); */
+body {
+  margin: 0px auto;
+  padding: 0px;
+  background: url("images/main-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  /* backdrop-filter: blur(6px); */
+}
+header {
+  margin: 0px;
+  background: url("images/main-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 10vh;
+  border-bottom: 1px solid whitesmoke;
+  box-shadow: 0px 2px 5px rgb(200, 200, 200);
+}
+.logo {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 900;
+  font-style: italic;
+  color: rgb(230, 66, 66);
+  text-shadow: 1px 1px 1px black;
+}
+.header-button {
+  border: 1px solid grey;
+  font-family: "Times New Roman", Times, serif;
+  font-variant: small-caps;
+  border-radius: 20px;
+}
+.search {
+  width: 60%;
+  text-align: center;
+  background-color: whitesmoke;
+  border: 1px solid grey;
+  border-radius: 30px;
+}
+.query-container {
+  border-top: none;
+  height: 90vh;
+}
+.data-section {
+  height: 90vh;
+  background-color: yellow;
+}
+.queries {
+  border-right: 1px solid grey;
+  height: 90vh;
+  overflow: scroll;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.queries::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.queries {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.query-box {
+  margin-top: 1vh;
+  border: 1px solid grey;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.484);
+  backdrop-filter: blur(6px);
+}
+.query-header {
+  font-weight: 600;
+  padding: 10px 10px;
+  border-bottom: 1px solid grey;
+  font-family: fonty;
+}
+.query {
+  border-bottom: 1px solid grey;
+  padding: 4vh 30px;
+  text-align: center;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  word-wrap: break-word;
+}
+.query-links {
+  font-variant: normal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputQuery {
+  transition: all 0.1s ease-in;
+  border: none;
+  font-family: "Cinzel", serif;
+  color: white;
+  background-color: rgba(139, 0, 139, 0.4);
+}
+.inputQuery:hover {
+  box-shadow: 2px 0px 7px rgb(0, 132, 255), -2px 0px 7px rgb(255, 60, 0),
+    0px 2px 7px rgb(180, 251, 13), 0px -2px 10px rgb(9, 255, 0);
+  background-color: rgb(255, 255, 255);
+  color: rgb(225, 36, 181);
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.2em;
+}
+.inputQuery:active {
+  background-color: rgba(139, 0, 139, 0.6);
+  transform: scale(0.8);
+}
+.like:hover {
+  cursor: pointer;
+}
+.material-icons:hover {
+  cursor: pointer;
+}
+.comments-main {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.425);
+  backdrop-filter: blur(3px);
+  z-index: 3;
+  display: none;
+}
+.comments {
+  position: absolute;
+  top: 17vh;
+  width: 60%;
+  height: 70vh;
+  border: 1px solid rgb(120, 120, 120);
+  z-index: 4;
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(0px);
+  border-radius: 20px;
+}
+.comments-header {
+  height: 4vh;
+  border-bottom: 1px solid rgb(198, 198, 198);
+  text-align: center;
+  font-family: kepolu;
+  transition: letter-spacing 0.3s ease-in;
+}
+.comments-header:hover {
+  cursor: pointer;
+  color: lightcoral;
+  letter-spacing: 0.5em;
+}
+.comments-header:active {
+  box-shadow: 0px 2px 2px rgb(203, 203, 203);
+  color: lightcoral;
+}
+#comment {
+  width: 100%;
+  text-align: center;
+  height: 15vh;
+  border: none;
+  border-bottom: 1px solid grey;
+  box-shadow: 0px 2px 2px rgb(212, 212, 212);
+}
+#comment:focus {
+  border: none;
+  outline: none;
+}
+.submit-comment {
+  border: 1px solid rgb(201, 201, 201);
+  text-align: center;
+  font-family: kepolu;
+  margin-top: 3px;
+  border-radius: 20px;
+  transition: all 0.1s linear;
+  width: 40%;
+}
+.submit-comment:hover {
+  cursor: pointer;
+  background-color: lightcoral;
+  letter-spacing: 0.5em;
+}
+.submit-comment:active {
+  background-color: white;
+  color: lightcoral;
+}
+.submit-comment-div {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+.all-comments {
+  margin-top: 2%;
+  width: 100%;
+  height: 60%;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+}
+.all-comments::-webkit-scrollbar {
+  display: none;
+}
+.comment-box {
+  margin-top: 3px;
+  border-bottom: 1px solid rgb(181, 181, 181);
+  padding: 2%;
+}
+.comment-header {
+  font-family: fonty;
+  font-weight: 600;
+}
+.comment-data {
+  word-wrap: break-word;
+}
+.profile-main {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.425);
+  backdrop-filter: blur(3px);
+  z-index: 2;
+  display: none;
+}
+.profile {
+  position: absolute;
+  top: 5vh;
+  width: 80%;
+  height: 90vh;
+  border: 1px solid rgb(120, 120, 120);
+  z-index: 3;
+  background-color: rgb(255, 255, 255);
+  backdrop-filter: blur(0px);
+  border-radius: 20px;
+  background-image: url(./images/main-bg.jpg);
+}
+.profile-header {
+  width: 100%;
+  height: 6vh;
+  display: flex;
+  align-items: center;
+}
+.profile-name {
+  width: 90%;
+  text-indent: 6%;
+  font-family: fonty;
+  font-size: 1.5em;
+  margin-top: 3vh;
+}
+.profile-exit {
+  font-family: shadow;
+  width: 7%;
+  text-align: right;
+  font-size: 1.5em;
+}
+.profile-exit:hover {
+  cursor: pointer;
+}
+.queries-asked {
+  font-family: kepolu;
+  font-size: 2em;
+  text-indent: 5%;
+}
+.profile-all-queries {
+  border-right: 1px solid grey;
+  height: 75vh;
+  overflow: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.profile-all-queries::-webkit-scrollbar {
+  display: none;
+}
+.loading {
+  margin-top: 2vh;
+  text-indent: 3%;
+  font-family: Kepolu;
+  animation: loadingAnimation 1s linear infinite;
+}
+@keyframes loadingAnimation {
+  0% {
+    color: rgb(255, 0, 0);
   }
-  header {
-    margin: 0px;
-    background: url("images/main-bg.jpg");
-    background-size: cover;
-    background-position: center;
-    height: 10vh;
-    border-bottom: 1px solid whitesmoke;
-    box-shadow: 0px 2px 5px rgb(200, 200, 200);
+  10% {
+    color: rgb(255, 4, 209);
   }
-  .logo {
-    font-family: "Times New Roman", Times, serif;
-    font-weight: 900;
-    font-style: italic;
-    color: rgb(230, 66, 66);
-    text-shadow: 1px 1px 1px black;
+  20% {
+    color: rgb(153, 0, 255);
   }
-  .header-button {
-    border: 1px solid grey;
-    font-family: "Times New Roman", Times, serif;
-    font-variant: small-caps;
-    border-radius: 20px;
+  30% {
+    color: rgb(0, 17, 255);
+  }
+  40% {
+    color: rgb(8, 247, 255);
+  }
+  50% {
+    color: rgb(0, 255, 0);
+  }
+  60% {
+    color: rgb(8, 247, 255);
+  }
+  70% {
+    color: rgb(0, 17, 255);
+  }
+  80% {
+    color: rgb(153, 0, 255);
+  }
+  90% {
+    color: rgb(255, 4, 209);
+  }
+  100% {
+    color: rgb(255, 0, 0);
+  }
+}
+.hide {
+  display: none;
+}
+.post-sm-box {
+  display: none;
+}
+@media (max-width: 768px) {
+  .post-sm-box {
+    display: block;
+  }
+  .queries {
+    border: none;
+  }
+  .post-box {
+    display: none;
   }
   .search {
-    width: 60%;
-    text-align: center;
-    background-color: whitesmoke;
-    border: 1px solid grey;
-    border-radius: 30px;
-  }
-  .query-container {
-    border-top: none;
-    height: 90vh;
-  }
-  .data-section {
-    height: 90vh;
-    background-color: yellow;
-  }
-  .queries {
-    border-right: 1px solid grey;
-    height: 90vh;
-    overflow: scroll;
-  }
-  /* Hide scrollbar for Chrome, Safari and Opera */
-  .queries::-webkit-scrollbar {
-    display: none;
-  }
-
-  /* Hide scrollbar for IE, Edge and Firefox */
-  .queries {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-  .query-box {
-    margin-top: 1vh;
-    border: 1px solid grey;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.484);
-    backdrop-filter: blur(6px);
-  }
-  .query-header {
-    font-weight: 600;
-    padding: 10px 10px;
-    border-bottom: 1px solid grey;
-    font-family: fonty;
-  }
-  .query {
-    border-bottom: 1px solid grey;
-    padding: 4vh 30px;
-    text-align: center;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    word-wrap: break-word;
-  }
-  .query-links {
-    font-variant: normal;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .inputQuery {
-    transition: all 0.1s ease-in;
-    border: none;
-    font-family: "Cinzel", serif;
-    color: white;
-    background-color: rgba(139, 0, 139, 0.4);
-  }
-  .inputQuery:hover {
-    box-shadow: 2px 0px 7px rgb(0, 132, 255), -2px 0px 7px rgb(255, 60, 0),
-      0px 2px 7px rgb(180, 251, 13), 0px -2px 10px rgb(9, 255, 0);
-    background-color: rgb(255, 255, 255);
-    color: rgb(225, 36, 181);
-    font-family: "Cinzel", serif;
-    letter-spacing: 0.2em;
-  }
-  .inputQuery:active {
-    background-color: rgba(139, 0, 139, 0.6);
-    transform: scale(0.8);
-  }
-  .like:hover {
-    cursor: pointer;
-  }
-  .material-icons:hover {
-    cursor: pointer;
-  }
-  .comments-main {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.425);
-    backdrop-filter: blur(3px);
-    z-index: 3;
-    display: none;
-  }
-  .comments {
-    position: absolute;
-    top: 17vh;
-    width: 60%;
-    height: 70vh;
-    border: 1px solid rgb(120, 120, 120);
-    z-index: 4;
-    background-color: rgb(255, 255, 255);
-    backdrop-filter: blur(0px);
-    border-radius: 20px;
-  }
-  .comments-header {
-    height: 4vh;
-    border-bottom: 1px solid rgb(198, 198, 198);
-    text-align: center;
-    font-family: kepolu;
-    transition: letter-spacing 0.3s ease-in;
-  }
-  .comments-header:hover {
-    cursor: pointer;
-    color: lightcoral;
-    letter-spacing: 0.5em;
-  }
-  .comments-header:active {
-    box-shadow: 0px 2px 2px rgb(203, 203, 203);
-    color: lightcoral;
-  }
-  #comment {
     width: 100%;
-    text-align: center;
-    height: 15vh;
-    border: none;
-    border-bottom: 1px solid grey;
-    box-shadow: 0px 2px 2px rgb(212, 212, 212);
   }
-  #comment:focus {
-    border: none;
-    outline: none;
-  }
-  .submit-comment {
-    border: 1px solid rgb(201, 201, 201);
-    text-align: center;
-    font-family: kepolu;
-    margin-top: 3px;
-    border-radius: 20px;
-    transition: all 0.1s linear;
-    width: 40%;
-  }
-  .submit-comment:hover {
-    cursor: pointer;
-    background-color: lightcoral;
-    letter-spacing: 0.5em;
-  }
-  .submit-comment:active {
-    background-color: white;
-    color: lightcoral;
-  }
-  .submit-comment-div {
-    width: 100%;
-    display: flex;
-    justify-content: right;
-  }
-  .all-comments {
-    margin-top: 2%;
-    width: 100%;
-    height: 60%;
-    overflow: scroll;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none;
-  }
-  .all-comments::-webkit-scrollbar {
-    display: none;
-  }
-  .comment-box {
-    margin-top: 3px;
-    border-bottom: 1px solid rgb(181, 181, 181);
-    padding: 2%;
-  }
-  .comment-header {
-    font-family: fonty;
-    font-weight: 600;
-  }
-  .comment-data {
-    word-wrap: break-word;
-  }
-  .profile-main {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.425);
-    backdrop-filter: blur(3px);
-    z-index: 2;
-    display: none;
-  }
-  .profile {
-    position: absolute;
-    top: 5vh;
-    width: 80%;
-    height: 90vh;
-    border: 1px solid rgb(120, 120, 120);
-    z-index: 3;
-    background-color: rgb(255, 255, 255);
-    backdrop-filter: blur(0px);
-    border-radius: 20px;
-    background-image: url(./images/main-bg.jpg);
-  }
-  .profile-header {
-    width: 100%;
+  header {
     height: 6vh;
-    display: flex;
-    align-items: center;
   }
-  .profile-name {
-    width: 90%;
-    text-indent: 6%;
-    font-family: fonty;
-    font-size: 1.5em;
-    margin-top: 3vh;
-  }
-  .profile-exit {
-    font-family: shadow;
-    width: 7%;
-    text-align: right;
-    font-size: 1.5em;
-  }
-  .profile-exit:hover {
-    cursor: pointer;
-  }
-  .queries-asked {
-    font-family: kepolu;
-    font-size: 2em;
-    text-indent: 5%;
+  .queries {
+    height: 94vh;
   }
   .profile-all-queries {
-    border-right: 1px solid grey;
     height: 75vh;
-    overflow: scroll;
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
   }
-  .profile-all-queries::-webkit-scrollbar {
-    display: none;
+  .comments {
+    top: 15vh;
+    width: 90%;
   }
-  .loading {
-    margin-top: 2vh;
-    text-indent: 3%;
-    font-family: Kepolu;
-    animation: loadingAnimation 1s linear infinite;
-  }
-  @keyframes loadingAnimation {
-    0% {
-      color: rgb(255, 0, 0);
-    }
-    10% {
-      color: rgb(255, 4, 209);
-    }
-    20% {
-      color: rgb(153, 0, 255);
-    }
-    30% {
-      color: rgb(0, 17, 255);
-    }
-    40% {
-      color: rgb(8, 247, 255);
-    }
-    50% {
-      color: rgb(0, 255, 0);
-    }
-    60% {
-      color: rgb(8, 247, 255);
-    }
-    70% {
-      color: rgb(0, 17, 255);
-    }
-    80% {
-      color: rgb(153, 0, 255);
-    }
-    90% {
-      color: rgb(255, 4, 209);
-    }
-    100% {
-      color: rgb(255, 0, 0);
-    }
-  }
-  .hide{
-    display:none;
-  }
-  @media (max-width: 768px) {
-    .queries {
-      border: none;
-    }
-    .post-box {
-      display: none;
-    }
-    .search {
-      width: 100%;
-    }
-    header {
-      height: 6vh;
-    }
-    .queries {
-      height: 94vh;
-    }
-    .profile-all-queries {
-      height: 75vh;
-    }
-    .comments {
-      top: 15vh;
-      width: 90%;
-    }
-  }
+}
