@@ -8,7 +8,6 @@ setTimeout("preventBack()", 0);
 window.onunload = function () {
   null;
 };
-
 const inputQueryButton = document.querySelector(".inputQuery");
 const inputQuery = document.querySelector("#inputQuery");
 async function postFunction() {
@@ -30,7 +29,7 @@ async function postFunction() {
       queryField.prepend(div);
       inputQuery.value = "";
       queryField.innerHTML = "";
-      document.querySelector(".post-sm-box").style.display = "none";
+      document.querySelector(".post-sm").classList.toggle("hide");
       queryData();
     }
   }
@@ -54,6 +53,7 @@ async function queryData() {
   let queryfieldhtml = "";
   queryField.innerHTML = "<h1 class='loading'>loading...</h1.";
   for (let x = fdata.length - 1; x >= 0; x--) {
+    // console.log(fdata[x]);
     let temp = `<div class="query-box"><div class="query-header">${fdata[x].uid}</div>
     <div class="query">${fdata[x].query}</div><div class="qid"style="display:none;">${fdata[x].id}</div>
     <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span> 
@@ -305,9 +305,8 @@ profileexit.addEventListener("click", () => {
 });
 const logout = document.querySelector(".logout-button");
 //post-sm-box
-// const logo = document.querySelector(".logo");
-// logo.addEventListener("click", () => {
-//   if (screen.width <= 768) {
-//     document.querySelector(".post-sm-box").classList.toggle("hide");
-//   }
-// });
+const postSmInput = document.querySelector(".post-sm-box");
+postSmInput.addEventListener("click", () => {
+  console.log("hello");
+  document.querySelector(".post-sm").classList.toggle("hide");
+});
