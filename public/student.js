@@ -24,12 +24,13 @@ async function postFunction() {
       div.innerHTML = `<div class="query-header">${fuserinfo[0].userId}</div>
       <div class="query">${inputQuery.value}</div>
       <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span>
-              &nbsp;<span class="likeCount like">0</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
+              &nbsp;<span class="likeCount like">${0}</span>&nbsp;&nbsp; <i class="material-icons commentButton">comment</i>
       </div>`;
       div.classList.add("query-box");
       queryField.prepend(div);
       inputQuery.value = "";
       queryField.innerHTML = "";
+      document.querySelector(".post-sm-box").style.display = "none";
       queryData();
     }
   }
@@ -53,7 +54,7 @@ async function queryData() {
   let queryfieldhtml = "";
   queryField.innerHTML = "<h1 class='loading'>loading...</h1.";
   for (let x = fdata.length - 1; x >= 0; x--) {
-    ////console.log(fdata[x]);
+    console.log(fdata[x]);
     let temp = `<div class="query-box"><div class="query-header">${fdata[x].uid}</div>
     <div class="query">${fdata[x].query}</div><div class="qid"style="display:none;">${fdata[x].id}</div>
     <div class="query-links"><span class="like" style="font-size:2.2em;margin-top: -3px;">♡</span> 
@@ -304,3 +305,9 @@ profileexit.addEventListener("click", () => {
   profileMain.style.display = "none";
 });
 const logout = document.querySelector(".logout-button");
+//post-sm-box
+const logo = document.querySelector(".logo");
+logo.addEventListener("click", () => {
+  if (screen.width <= 768)
+    document.querySelector(".post-sm-box").style.display = "block";
+});
