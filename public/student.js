@@ -305,9 +305,9 @@ profileexit.addEventListener("click", () => {
 });
 const logout = document.querySelector(".logout-button");
 //post-sm-box
-const logo = document.querySelector(".logo");
-logo.addEventListener("click", () => {
-  if (screen.width <= 768) {
-    document.querySelector(".post-sm-box").classList.toggle("hide");
-  }
-});
+// const logo = document.querySelector(".logo");
+// logo.addEventListener("click", () => {
+//   if (screen.width <= 768) {
+//     document.querySelector(".post-sm-box").classList.toggle("hide");
+//   }
+// });
