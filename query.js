@@ -10,6 +10,10 @@ const querySchema = mongoose.Schema({
     default: Date.now,
   },
   query: { type: String, required: true },
+  likeCount: {
+    type: Number,
+    required: true,
+  },
 });
 
 const query = mongoose.model("query", querySchema);
