@@ -246,11 +246,7 @@ async function profilequeryData() {
       for (let j = 0; j < fcommentsDAta.length; j++) {
         const div = document.createElement("div");
         div.classList.add("comment-box");
-        const userinfo = await fetch(
-          `/studentpage/userinfo?id=${fcommentsDAta[j].uid}`
-        );
-        const fuserinfo = await userinfo.json();
-        div.innerHTML = `<div class="comment-header">${fuserinfo[0].userId}</div>
+        div.innerHTML = `<div class="comment-header">${fcommentsDAta[j].uid}</div>
         <div class="comment-data">${fcommentsDAta[j].comment}</div>`;
         allComments.prepend(div);
       }
